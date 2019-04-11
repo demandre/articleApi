@@ -72,6 +72,7 @@ module.exports = class Server {
     new routes.user.Create(this.app, this.config, this.connect)
     // Articles
     new routes.article.ArticleCreate(this.app, this.config, this.connect)
+    new routes.article.ArticleShow(this.app, this.config, this.connect)
 
     // If route not exist
     this.app.use((req, res) => {

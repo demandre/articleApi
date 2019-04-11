@@ -42,20 +42,8 @@ describe('GET /article', () => {
           done();
       });
   });
-
-  it('get /show should return an article', (done) => {
-    chai.request(app)
-      .post('/article/create')
-      .send(payload)
-      .end((err, res) => {
-          res.should.have.status(200);
-          //res.text.should.be.eql(result); Can't verify as object_id is random
-
-          done();
-      });
-  });
-
-  it('GET /show:id should get an user result with id 5caf315c3dc37a1b03a9d0c0', (done) => {
+  
+  it('GET /show:id should get an article result with id 5caf315c3dc37a1b03a9d0c0', (done) => {
     chai.request(app)
       .get('/article/show/5caf315c3dc37a1b03a9d0c0')
       .end((err, res) => {
