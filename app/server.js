@@ -70,10 +70,6 @@ module.exports = class Server {
    */
   routes () {
     new routes.user.Create(this.app, this.config, this.connect)
-    new routes.user.Show(this.app, this.config, this.connect)
-    new routes.user.Search(this.app, this.config, this.connect)
-    new routes.user.Update(this.app, this.config, this.connect)
-    new routes.user.Destroy(this.app, this.config, this.connect)
     // Articles
     new routes.article.ArticleCreate(this.app, this.config, this.connect)
 
