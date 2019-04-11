@@ -42,14 +42,13 @@ describe('GET /article', () => {
           done();
       });
   });
-  
+
   it('GET /show:id should get an article result with id 5caf315c3dc37a1b03a9d0c0', (done) => {
     chai.request(app)
       .get('/article/show/5caf315c3dc37a1b03a9d0c0')
       .end((err, res) => {
           res.should.have.status(200);
-          res.text.should.be.eql('{ "_id" : "5caf315c3dc37a1b03a9d0c0", "title" : "Great article", "content" : "This is an article", "cover_img_url" : "test url" }');
-
+          res.text.should.be.eql('[{"_id":"5caf315c3dc37a1b03a9d0c0","title":"Great article","content":"This is an article","cover_img_url":"test url"}]');
           done();
       });
   });
