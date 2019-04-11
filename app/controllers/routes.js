@@ -4,6 +4,9 @@ const Search = require('./user/search.js')
 const Update = require('./user/update.js')
 const Destroy = require('./user/destroy.js')
 
+// Articles
+const ArticleCreate = require('./article/create.js')
+
 module.exports = {
   user: {
     Create,
@@ -11,5 +14,8 @@ module.exports = {
     Search,
     Update,
     Destroy
+  },
+  article: {
+  	ArticleCreate
   }
 }
