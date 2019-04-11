@@ -24,7 +24,7 @@ module.exports = class Create {
           })
         }
 
-        this.ArticleModel.remove({_id: req.params.id }, function (err, article) {
+        this.ArticleModel.deleteOne({_id: req.params.id }, function (err, article) {
           if (err) {
             res.status(400).json({
               'code': 400,
