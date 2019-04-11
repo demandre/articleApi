@@ -67,6 +67,29 @@ Allows the creation of a single article.
   }
 ```
 
+### [GET] Delete article
+Allows to delete a single article.
+
+|                            |                  |
+|----------------------------|------------------|
+| Requires authentication ?  | No               |
+| Who can use it ?           | Owner and users  |
+| Response formats           | application/json |
+
+* HTTP request : GET → article/delete/:id
+
+#### Parameters :
+No parameters
+
+#### Response :
+```javascript
+  {
+    n: Number,
+    ok: Number,
+    deletedCount: Number
+  }
+```
+
 ### [GET] Show article
 Allows to get single article data.
 
