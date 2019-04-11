@@ -1,5 +1,5 @@
 // Dependencies
-const Schema = require('../../models/user.js')
+const Schema = require('../../models/article.js')
 const validator = require('node-validator')
 const check = require('./payload-validator/create.js')
 
@@ -8,7 +8,7 @@ module.exports = class Create {
     this.app = app
     this.config = config
     this.check = check
-    this.UserModel = connect.model('User', Schema)
+    this.ArticleModel = connect.model('Article', Schema)
 
     this.run()
   }
@@ -19,15 +19,15 @@ module.exports = class Create {
   middleware () {
     this.app.post('/article/create', validator.express(this.check), (req, res) => {
       try {
-        const userModel = new this.UserModel(req.body)
+        const articleModel = new this.ArticleModel(req.body)
 
-        userModel.save().then(user => {
-            res.status(200).json(user || {})
+        articleModel.save().then(article => {
+            res.status(200).json(article || {})
           }).catch(() => {
             res.status(200).json({})
           })
       } catch (e) {
-        console.error(`[ERROR] user/create -> ${e}`)
+        console.error(`[ERROR] article/create -> ${e}`)
         res.status(400).json({
           'code': 400,
           'message': 'Bad request'
