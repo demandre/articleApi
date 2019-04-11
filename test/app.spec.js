@@ -78,11 +78,13 @@ describe('GET /article', () => {
 
   it('GET /show:id should get an article result with id created above', (done) => {
     const articleId = this.articleCreated._id;
+    const articleDate = this.articleCreated.date;
     chai.request(app)
       .get('/article/show/' + articleId)
       .end((err, res) => {
           res.should.have.status(200);
-          res.text.should.be.eql('[{"_id":"' + articleId + '","title":"Great article","content":"This is an article","cover_img_url":"test url"}]');
+          res.text.should.be.eql('[{"comment":[],"_id":"' + articleId + '","title":"Great article","content":"This is an article","cover_img_url":"test url","date":"' + articleDate + '"}]')
+
           done();
       });
   });
