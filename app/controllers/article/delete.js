@@ -15,7 +15,7 @@ module.exports = class Create {
    * Middleware
    */
   middleware () {
-    this.app.get('/article/show/:id', (req, res) => {
+    this.app.get('/article/delete/:id', (req, res) => {
       try {
         if (!req.params || !req.params.id.length) {
           res.status(404).json({
@@ -24,7 +24,7 @@ module.exports = class Create {
           })
         }
 
-        this.ArticleModel.find({_id: req.params.id }, function (err, article) {
+        this.ArticleModel.remove({_id: req.params.id }, function (err, article) {
           if (err) {
             res.status(400).json({
               'code': 400,
@@ -36,7 +36,7 @@ module.exports = class Create {
         })
 
       } catch (e) {
-        console.error(`[ERROR] article/show/:id -> ${e}`)
+        console.error(`[ERROR] article/delete/:id -> ${e}`)
         res.status(400).json({
           'code': 400,
           'message': 'Bad request'
