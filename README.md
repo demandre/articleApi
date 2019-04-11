@@ -58,12 +58,12 @@ Allows the creation of a single article.
 #### Response :
 ```javascript
   {
+    comment: Array,
     _id: Object_ID,
     title: String,
     content: String,
     cover_img_url: String,
-    date: String,
-    comment: Array
+    date: String
   }
 ```
 
