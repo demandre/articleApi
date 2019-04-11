@@ -76,7 +76,7 @@ describe('GET /article', () => {
       });
   });
 
-  it('GET /show:id should get an article result with id created above', (done) => {
+  it('GET /show/:id should get an article result with id created above', (done) => {
     chai.request(app)
       .get('/article/show/' + this.articleCreated._id)
       .end((err, res) => {
@@ -87,13 +87,13 @@ describe('GET /article', () => {
       });
   });
 
-  it('GET /delete:id should delete an article with id created above', (done) => {
+  it('GET /delete/:id should delete an article with id created above', (done) => {
     chai.request(app)
       .get('/article/delete/' + this.articleCreated._id)
       .end((err, res) => {
           res.should.have.status(200);
-          res.text.should.be.eql('[{"comment":[],"_id":"' + this.articleCreated._id + '","title":"Great article","content":"This is an article","cover_img_url":"test url","date":"' + this.articleCreated.date + '"}]')
-
+          res.text.should.be.eql('{"n":1,"ok":1,"deletedCount":1}')
+          
           done();
       });
   });
