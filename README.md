@@ -3,6 +3,38 @@
 ## Overview
 The API allows users to retrieve all of the article of the application in micro service through a REST architecture.
 
+Also allows to create users. Will be useful soon with authentification.
+
+### [POST] Create user
+Allows the creation of a single user.
+
+|                            |                  |
+|----------------------------|------------------|
+| Requires authentication ?  | No               |
+| Who can use it ?           | Owner and users  |
+| Response formats           | application/json |
+
+* HTTP request : POST → user/create
+
+#### Parameters :
+```javascript
+{
+  'name': String, // Required
+  'age': Number, // Optional
+  'sexe': String // Optional
+}
+```
+
+#### Response :
+```javascript
+  {
+    _id: Object_ID,
+    name: String,
+    age: String,
+    sexe: String
+  }
+```
+
 ### [POST] Create article
 Allows the creation of a single article.
 
