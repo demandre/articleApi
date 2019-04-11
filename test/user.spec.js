@@ -22,7 +22,6 @@ describe('GET /user', () => {
       .post('/user/create')
       .send(payload)
       .end((err, res) => {
-          console.log(res);
           res.should.have.status(200);
           //res.text.should.be.eql(result); Can't verify as object_id is random
 
