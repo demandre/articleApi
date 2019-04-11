@@ -95,8 +95,8 @@ describe('GET /article', () => {
       .send(payload)
       .end((err, res) => {
           res.should.have.status(200);
-          res.text.should.be.eql('[{"comment":[],"_id":"' + this.articleCreated._id + '","title":"Great article updated","content":"This is an article updated","cover_img_url":"test url updated","date":"' + this.articleCreated.date + '"}]')
-
+          res.text.should.be.eql('{"comment":[],"_id":"' + this.articleCreated._id + '","title":"Great article updated","content":"This is an article updated","cover_img_url":"test url updated","date":"' + this.articleCreated.date + '"}')
+          
           done();
       });
   });

@@ -4,6 +4,7 @@ const Create = require('./user/create.js')
 const ArticleCreate = require('./article/create.js')
 const ArticleShow = require('./article/show.js')
 const ArticleDelete = require('./article/delete.js')
+const ArticleUpdate = require('./article/update.js')
 
 module.exports = {
   user: {
@@ -12,6 +13,7 @@ module.exports = {
   article: {
   	ArticleCreate,
     ArticleShow,
-    ArticleDelete
+    ArticleDelete,
+    ArticleUpdate
   }
 }
