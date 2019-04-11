@@ -87,13 +87,27 @@ describe('GET /article', () => {
       });
   });
 
+  it('POST /update/:id should update article with id created above', (done) => {
+    const payload = {"title":"Great article updated","content":'This is an article updated',"cover_img_url":"test url updated"};
+
+    chai.request(app)
+      .post('/article/update/' + this.articleCreated._id)
+      .send(payload)
+      .end((err, res) => {
+          res.should.have.status(200);
+          res.text.should.be.eql('[{"comment":[],"_id":"' + this.articleCreated._id + '","title":"Great article updated","content":"This is an article updated","cover_img_url":"test url updated","date":"' + this.articleCreated.date + '"}]')
+
+          done();
+      });
+  });
+
   it('GET /delete/:id should delete an article with id created above', (done) => {
     chai.request(app)
       .get('/article/delete/' + this.articleCreated._id)
       .end((err, res) => {
           res.should.have.status(200);
           res.text.should.be.eql('{"n":1,"ok":1,"deletedCount":1}')
-          
+
           done();
       });
   });
