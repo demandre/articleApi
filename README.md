@@ -67,6 +67,32 @@ Allows the creation of a single article.
   }
 ```
 
+### [GET] Create article
+Allows to get single article data.
+
+|                            |                  |
+|----------------------------|------------------|
+| Requires authentication ?  | No               |
+| Who can use it ?           | Owner and users  |
+| Response formats           | application/json |
+
+* HTTP request : GET → article/show/:id
+
+#### Parameters :
+No parameters
+
+#### Response :
+```javascript
+  {
+    _id: Object_ID,
+    title: String,
+    content: String,
+    cover_img_url: String,
+    date: String,
+    comment: Array
+  }
+```
+
 ### Requirements
 * node 10
 * npm
