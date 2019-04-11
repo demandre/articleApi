@@ -90,6 +90,38 @@ No parameters
   }
 ```
 
+### [POST] Update article
+Allows the creation of a single article.
+
+|                            |                  |
+|----------------------------|------------------|
+| Requires authentication ?  | No               |
+| Who can use it ?           | Owner and users  |
+| Response formats           | application/json |
+
+* HTTP request : POST → article/update/:id
+
+#### Parameters :
+```javascript
+{
+  'title': String, // Optional
+  'content ': String, // Optional
+  'cover_img_url': String // Optional
+}
+```
+
+#### Response :
+```javascript
+  {
+    comment: Array,
+    _id: Object_ID,
+    title: String,
+    content: String,
+    cover_img_url: String,
+    date: String
+  }
+```
+
 ### [GET] Show article
 Allows to get single article data.
 
