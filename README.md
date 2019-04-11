@@ -67,7 +67,7 @@ Allows the creation of a single article.
   }
 ```
 
-### [GET] Create article
+### [GET] Show article
 Allows to get single article data.
 
 |                            |                  |
