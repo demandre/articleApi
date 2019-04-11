@@ -15,7 +15,6 @@ chai.use(chaiHttp);
  */
 describe('GET /user', () => {
   it('POST /create should create an user', (done) => {
-    //const result = '{"name":"cyril","age":"30","sexe":"male"}';
     const payload = {"name":"cyril","age":'30',"sexe":"male"};
 
     chai.request(app)
@@ -23,7 +22,6 @@ describe('GET /user', () => {
       .send(payload)
       .end((err, res) => {
           res.should.have.status(200);
-          //res.text.should.be.eql(result); Can't verify as object_id is random
 
           done();
       });
@@ -57,7 +55,7 @@ describe('GET /article', () => {
       .send(payload)
       .end((err, res) => {
           res.should.have.status(200);
-          //res.text.should.be.eql(result); Can't verify as object_id is random
+          this.articleCreated = JSON.parse(res.text)
 
           done();
       });
@@ -78,12 +76,13 @@ describe('GET /article', () => {
       });
   });
 
-  it('GET /show:id should get an article result with id 5caf315c3dc37a1b03a9d0c0', (done) => {
+  it('GET /show:id should get an article result with id created above', (done) => {
+    const articleId = this.articleCreated._id;
     chai.request(app)
-      .get('/article/show/5caf315c3dc37a1b03a9d0c0')
+      .get('/article/show/' + articleId)
       .end((err, res) => {
           res.should.have.status(200);
-          res.text.should.be.eql('[{"_id":"5caf315c3dc37a1b03a9d0c0","title":"Great article","content":"This is an article","cover_img_url":"test url"}]');
+          res.text.should.be.eql('[{"_id":"' + articleId + '","title":"Great article","content":"This is an article","cover_img_url":"test url"}]');
           done();
       });
   });
