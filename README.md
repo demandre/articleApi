@@ -1,12 +1,10 @@
-# API Users
+# Article API
 
 ## Overview
-The API allows users to retrieve all of the users of the application in micro service through a REST architecture. This API will be mainly used for registed Accounts.
+The API allows users to retrieve all of the article of the application in micro service through a REST architecture.
 
-It will also create own users to recover data to the platform but is in no way related to the users collected via the crawling of profiles on Social Networks.
-
-### [POST] Create user
-Allows the creation of a single user.
+### [POST] Create article
+Allows the creation of a single article.
 
 |                            |                  |
 |----------------------------|------------------|
@@ -14,14 +12,14 @@ Allows the creation of a single user.
 | Who can use it ?           | Owner and users  |
 | Response formats           | application/json |
 
-* HTTP request : POST → user/create
+* HTTP request : POST → article/create
 
 #### Parameters :
 ```javascript
 {
-  'name': String, // Required
-  'age': Number, // Optional
-  'sexe': String // Optional
+  'title': String, // Required
+  'content ': String, // Required
+  'cover_img_url': String // Optional
 }
 ```
 
@@ -29,9 +27,11 @@ Allows the creation of a single user.
 ```javascript
   {
     _id: Object_ID,
-    name: String,
-    age: String,
-    sexe: String
+    title: String,
+    content: String,
+    cover_img_url: String,
+    date: String,
+    comment: Array
   }
 ```
 
