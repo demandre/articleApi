@@ -25,7 +25,7 @@ module.exports = class Create {
             message: 'Not Found'
           })
         }
-        this.articleModel.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, article) {
+        this.ArticleModel.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, article) {
           if (err) {
             res.status(400).json({
               'code': 400,
