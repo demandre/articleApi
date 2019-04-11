@@ -21,7 +21,6 @@ describe('GET /article', () => {
       .post('/article/create')
       .send(payload)
       .end((err, res) => {
-          console.log(res);
           res.should.have.status(200);
           //res.text.should.be.eql(result); Can't verify as object_id is random
 
@@ -39,6 +38,29 @@ describe('GET /article', () => {
       .end((err, res) => {
           res.should.have.status(400);
           res.text.should.be.eql(result);
+
+          done();
+      });
+  });
+
+  it('get /show should return an article', (done) => {
+    chai.request(app)
+      .post('/article/create')
+      .send(payload)
+      .end((err, res) => {
+          res.should.have.status(200);
+          //res.text.should.be.eql(result); Can't verify as object_id is random
+
+          done();
+      });
+  });
+
+  it('GET /show:id should get an user result with id 5caf315c3dc37a1b03a9d0c0', (done) => {
+    chai.request(app)
+      .get('/article/show/5caf315c3dc37a1b03a9d0c0')
+      .end((err, res) => {
+          res.should.have.status(200);
+          res.text.should.be.eql('{ "_id" : "5caf315c3dc37a1b03a9d0c0", "title" : "Great article", "content" : "This is an article", "cover_img_url" : "test url" }');
 
           done();
       });
