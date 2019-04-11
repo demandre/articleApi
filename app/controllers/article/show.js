@@ -1,17 +1,15 @@
 // Core
 const mongoose = require('mongoose')
-const UserModel = require('../../models/article.js')
+const Schema = require('../../models/article.js')
 
 module.exports = class Create {
   constructor (app, config, connect) {
     this.app = app
     this.config = config
-    this.check = check
     this.ArticleModel = connect.model('Article', Schema)
 
     this.run()
   }
-
 
   /**
    * Middleware
@@ -26,7 +24,7 @@ module.exports = class Create {
           })
         }
 
-        UserModel.find({_id: req.params.id }, function (err, user) {
+        this.ArticleModel.find({_id: req.params.id }, function (err, user) {
           if (err) {
             res.status(400).json({
               'code': 400,
