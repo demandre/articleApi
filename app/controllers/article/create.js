@@ -17,7 +17,7 @@ module.exports = class Create {
    * Middleware
    */
   middleware () {
-    this.app.post('/user/create', validator.express(this.check), (req, res) => {
+    this.app.post('/article/create', validator.express(this.check), (req, res) => {
       try {
         const userModel = new this.UserModel(req.body)
 
