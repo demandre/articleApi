@@ -101,6 +101,20 @@ describe('GET /article', () => {
       });
   });
 
+  it('GET /search/ should get article created by title', (done) => {
+    const payload = {"title":"Great article updated"};
+    
+    chai.request(app)
+      .get('/article/search/')
+      .send(payload)
+      .end((err, res) => {
+          res.should.have.status(200);
+          res.text.should.be.eql('{"comment":[],"_id":"' + this.articleCreated._id + '","title":"Great article updated","content":"This is an article updated","cover_img_url":"test url updated","date":"' + this.articleCreated.date + '"}')
+
+          done();
+      });
+  });
+
   it('GET /delete/:id should delete an article with id created above', (done) => {
     chai.request(app)
       .get('/article/delete/' + this.articleCreated._id)
