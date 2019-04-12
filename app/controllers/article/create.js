@@ -19,10 +19,6 @@ module.exports = class Create {
   middleware () {
     this.app.post('/article/create', validator.express(this.check), (req, res) => {
       try {
-        Object.assign(req.body, {
-          "date": Date.now(),
-          "comments": []
-        })
         const articleModel = new this.ArticleModel(req.body)
 
         articleModel.save().then(article => {
