@@ -5,6 +5,7 @@ const ArticleCreate = require('./article/create.js')
 const ArticleShow = require('./article/show.js')
 const ArticleDelete = require('./article/delete.js')
 const ArticleUpdate = require('./article/update.js')
+const ArticleSearch = require('./article/search.js')
 
 module.exports = {
   user: {
@@ -14,6 +15,7 @@ module.exports = {
   	ArticleCreate,
     ArticleShow,
     ArticleDelete,
-    ArticleUpdate
+    ArticleUpdate,
+    ArticleSearch
   }
 }
